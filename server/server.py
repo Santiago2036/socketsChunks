@@ -1,10 +1,5 @@
 import zmq
-import sys
 import json
-import codecs
-import os
-import shutil
-from time import sleep
 
 context = zmq.Context()
 clients = context.socket(zmq.REP)
@@ -21,6 +16,5 @@ while True:
         nombre = nombre.decode("utf-8")
         with open(nombre, "ab") as filee:
             filee.write(data)
-            print(data)
 
     clients.send_string("LISTO!!")
